@@ -20,13 +20,14 @@ def perceptronStep(X, y, W, b, learn_rate = 0.01):
         y_hat = prediction(X[i],W,b)
         addOrSubFactor = y[i] - y_hat 
         for j in range(2):
-                W[j] += addOrSubFactor * X[i][j] * learn_rate
-            b += addOrSubFactor * learn_rate
+            W[j] += addOrSubFactor * X[i][j] * learn_rate
+        b += addOrSubFactor * learn_rate
     return W, b
     
 def perceptronStep1(X, y, W, b, learn_rate = 0.01):
     for i in range(len(X)):
         y_hat = prediction(X[i],W,b)
+        addOrSubFactor = y[i] - y_hat
         W[0] += addOrSubFactor * X[i][0] * learn_rate
         W[1] += addOrSubFactor * X[i][1] * learn_rate
         b += addOrSubFactor * learn_rate
