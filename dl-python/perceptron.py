@@ -23,16 +23,7 @@ def perceptronStep(X, y, W, b, learn_rate = 0.01):
             W[j] += addOrSubFactor * X[i][j] * learn_rate
         b += addOrSubFactor * learn_rate
     return W, b
-    
-def perceptronStep1(X, y, W, b, learn_rate = 0.01):
-    for i in range(len(X)):
-        y_hat = prediction(X[i],W,b)
-        addOrSubFactor = y[i] - y_hat
-        W[0] += addOrSubFactor * X[i][0] * learn_rate
-        W[1] += addOrSubFactor * X[i][1] * learn_rate
-        b += addOrSubFactor * learn_rate
-    return W, b    
-    
+      
 # This function runs the perceptron algorithm repeatedly on the dataset,
 # and returns a few of the boundary lines obtained in the iterations,
 # for plotting purposes.
@@ -48,4 +39,5 @@ def trainPerceptronAlgorithm(X, y, learn_rate = 0.01, num_epochs = 1000):
         # In each epoch, we apply the perceptron step.
         W, b = perceptronStep(X, y, W, b, learn_rate)
         boundary_lines.append((-W[0]/W[1], -b/W[1]))
+
     return boundary_lines
